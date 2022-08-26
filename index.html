@@ -41,7 +41,14 @@
        .card {
         border: 3px black solid;
        }
-        
+        @media screen and (max-width: 500px) {
+            .summary {
+                flex-grow: 2;
+            }
+            .card {
+                flex-grow: 1;
+            }
+        }
             
         
     </style>
@@ -83,9 +90,9 @@
             </div>
             <div class="card">
                 <img src="/pictures/myphoto.jpg" class="card-img-top" />
-                <div class="card-body w-100">
+                <div class="card-body w-100" style="background-image: linear-gradient(to left, blue, green,yellow);">
                     <h5 class="card-title lead">My profile</h5>
-                    <p class="card-text" style="background-image: linear-gradient(to left, blue, green,yellow);">Hi, this is my starting webpage that I am building. Hopefully, I get to add more stuff.</p>
+                    <p class="card-text">Hi, this is my starting webpage that I am building. Hopefully, I get to add more stuff.</p>
                 </div>
             </div>
         </div>         
