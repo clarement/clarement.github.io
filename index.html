@@ -39,9 +39,15 @@
             align-self: center;
         }
        .card {
-        border: 5px whitesmoke solid;
+        border: 3px black solid;
        }
-        
+        @media screen and (min-width: 508px) {
+            .summary, .card {
+                display: block;
+            }
+        };
+            
+        }
     </style>
     <title>Document</title>
 </head>
@@ -79,7 +85,7 @@
             <div class="summary">
                 My name is Klement! My hobbies include watching MMA and hanging out with my homies. 
             </div>
-            <div class="card h-40">
+            <div class="card">
                 <img src="/pictures/myphoto.jpg" class="card-img-top" />
                 <div class="card-body w-100">
                     <h5 class="card-title lead">My profile</h5>
