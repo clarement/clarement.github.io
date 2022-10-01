@@ -33,7 +33,7 @@
             margin-bottom: 10px;
         }
         section {
-            margin-bottom: 50px;
+            margin-bottom: 20px;
         }
         
     </style>
@@ -168,7 +168,23 @@
             </div>
         </div>
     </section>
-  
+    <footer>
+        <div class="container mb-3">
+            <p style="text-align: center; font-size: larger; color: palevioletred;">If you are a big anime fan like me, please click this button of funzies.</p>
+            <div class="alert alert-danger" role="alert">
+                This API has a limit of 10/hour because I am broke and I cannot afford the premium stuff.
+              </div>
+            <button type="button" style="margin-bottom: 20px;" onclick="createQuote()" class="btn btn-success">Quote of the day <em>(Anime Version)</em></button>
+            <div id="quote-container">
+
+            </div>
+            <div style="text-align: center; margin-top: 10px; margin-bottom: 10px;">
+                Hope you enjoyed my customised webpage! 
+            </div>
+        </div>
+        
+    </footer>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
         function createCard() {
             card = ''
@@ -228,6 +244,35 @@
             card_div.appendChild(newCard)
             var intro = document.getElementById('intro')
             intro.innerHTML = 'Try again for a different one!'
+        }
+
+        function createQuote() {
+            document.getElementById('quote-container').innerHTML = ''
+            axios.get('https://anime-quotes1.p.rapidapi.com/api/random', {headers: { 'X-RapidAPI-Key': '588a87b307mshb1d58144058dd7fp16280ajsna6de7655d927',
+                'X-RapidAPI-Host': 'anime-quotes1.p.rapidapi.com'}}).then(function (response) {
+                var anime_name = response.data.anime
+                var character = response.data.character
+                var quote = response.data.quote
+                var quote_card = `<div class="card">
+                            <div class="card-header">
+                                    Your Quote of the Day (hopefully, it is wholesome)
+                            </div>
+                            <div class="card-body">
+                                <blockquote class="blockquote mb-0">
+                                    <p>${quote}</p>
+                                        <footer class="blockquote-footer">${character} in <cite title="Source Title">${anime_name}</cite></footer>
+                                 </blockquote>
+                                </div>
+                        </div>`
+                var quote_div = document.createElement('div')
+                quote_div.innerHTML = quote_card
+                document.getElementById('quote-container').appendChild(quote_div)
+                console.log(quote_card)
+	            console.log(response.data);
+                }).catch(function (error) {
+	            console.log(error.message);
+            });
+            
         }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
