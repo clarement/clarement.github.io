@@ -35,7 +35,37 @@
         section {
             margin-bottom: 20px;
         }
-        
+        #insta {
+            float: right;
+            width: 30px;
+            margin-left: 5px;
+        }
+        #github {
+            float: right;
+            width: 30px;
+        }
+        #profile {
+            width: 40%;
+            height: auto;
+            border-radius: 50%;
+        }
+        #cool {
+            background-color: black;
+            position: relative;
+            animation-name: cool;
+            animation-timing-function: ease-out;
+            animation-duration: 3s;
+        }
+        @keyframes cool {
+            from {
+                right: 800px;
+                opacity: 0;
+            }
+            to {
+                right: 0px;
+                opacity: 1;
+            }
+        }
     </style>
     <title>Document</title>
 </head>
@@ -45,7 +75,10 @@
             <div class="row">
                 <div class="col h3 text-center welcome">
                     <i>Welcome to my wonderful page!</i>
+                    <a href="https://www.instagram.com/ickymode/"><img id='insta' src="pictures/insta.png" alt="instagram" /></a>
+                    <a href="https://github.com/clarement"><img id='github' src="pictures/github.png" alt="github" /></a>
                 </div>
+
             </div>
             <div class="row justify-content-center mt-3">
                 <div class="col-8">
@@ -59,10 +92,12 @@
     <section>
         <div class="container-fluid text-white text-center lh-lg mb-3">
             <div class="row justify-content-center">
-                <div class="col-10 p-2 bg-black rounded">
-                    Wassup, my homies!<br>
+                <div id="cool" class="col-10 p-4 rounded d-flex flex-lg-row flex-column">
+                    <p class="me-lg-3 align-self-center">Wassup, my homies!<br>
                     My name is Klement and I'm currently enrolled in Information Systems at SMU. Presently, I haven't actually decided on a track yet but I am considering Business Analytics.
-                    Some of my hobbies here include watching people fight each other (MMA) and going cafe-hopping with my pals!
+                    Some of my hobbies here include watching people fight each other (MMA) and going cafe-hopping with my pals! So far, I'm really enjoying IS216 and do genuinely hope that it will be of some use to me in the future!
+                    </p>
+                    <img id='profile' class="mx-auto" src="pictures/klement.png" />
                 </div>
             </div>
     
@@ -70,7 +105,7 @@
         <div class="intro text-center container" >
             <span style="color:black;font-size: 20px;"><em>Whenever I'm sad or alone, I think of <span style="color:green; font-size: larger;">Mike Wazowski</span>, the little rascal, and it honestly makes me happy again</em></span>
             <img class="mike" src="pictures/mike.jpg" alt="mike" />
-            <span>A glimpse of my life (hopefully this inspires you to be the best you can be)</span>
+            <span>A glimpse of my life (hopefully this makes you laugh)</span>
             <div class="row justify-content-center mt-3">
                 <div class="col-9 bg-black ">
                     <div id="carouselExampleCaptions" class="carousel slide mx-auto" data-bs-ride="false">
@@ -105,7 +140,8 @@
                           <div class="carousel-item">
                             <img src="pictures/duck.jpg" class="d-block w-75 mx-auto" alt="duck">
                             <div class="carousel-caption d-none d-md-block">
-                                <span class="fs-5">Me just chilling like a villain</span>
+                                <span class="fs-5">This is a cute picture of a duck on a swing</span>
+                                <p>I want to be this duck</p>
                             </div>
                           </div>
                         </div>
@@ -202,7 +238,6 @@
             card_div.innerHTML = ''
             var checked = document.getElementById('anime').getElementsByTagName('input')
             var name = document.getElementById('name').value
-            console.log(name)
             if (name == '') {
                 alert('Please enter a name. Preferably one that is cool')
                 return
